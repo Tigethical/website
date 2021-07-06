@@ -1,0 +1,634 @@
+{% load static %}
+{% static 'images' as baseUrl%}
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Home</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="{% static 'css/base.css' %}">  
+   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+   <link rel="stylesheet" href="{% static 'css/vendor.css' %}">     
+
+   <!-- script
+   ================================================== -->   
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<script src="{% static 'js/pace.min.js' %}"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="">
+
+</head>
+
+<body id="top">
+
+	<!-- header 
+   ================================================== -->
+   <header>   	
+   	<div class="row">
+
+   		<div class="top-bar">
+   			<a class="menu-toggle" href="#"><span>Menu</span></a>
+		      
+
+		   	<nav id="main-nav-wrap">
+					<ul class="main-navigation">
+						<li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>
+						<li><a class="smoothscroll"  href="#about" title="">About</a></li>
+						<li><a class="smoothscroll"  href="#resume" title="">Resume</a></li>
+						<li><a class="smoothscroll"  href="#portfolio" title="">Certifications</a></li>
+						<li><a class="smoothscroll"  href="#services" title="">Projects</a></li>					
+						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>	
+									
+					</ul>
+				</nav>    		
+   		</div> <!-- /top-bar --> 
+   		
+   	</div> <!-- /row --> 		
+   </header> <!-- /header -->
+
+	<!-- intro section
+   ================================================== -->
+   <section id="intro">   
+
+   	<div class="intro-overlay"></div>	
+
+   	<div class="intro-content">
+   		<div class="row">
+
+   			<div class="col-twelve">
+
+	   			<h5>Hello, World.</h5>
+	   			<h1>I'm SREEHARI S</h1>
+
+	   			<p class="intro-position">
+	   				<span>Engineering student</span>
+	   				<span>Electronics and communication</span> 
+	   			</p>
+
+	   			<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
+
+	   		</div>  
+   			
+   		</div>   		 		
+   	</div> <!-- /intro-content --> 
+
+   	<ul class="intro-social">        
+         <li><a href="http://www.facebook.com/sreehari.sreehari.988"><i class="fa fa-facebook"></i></a></li>
+         <li><a href="http://www.linkedin.com/in/sree-hari-s-826108170"><i class="fa fa-linkedin"></i></a></li>
+         <li><a href="http://twitter.com/Sreehar04564664"><i class="fa fa-twitter"></i></a></li>
+         <li><a href="http://instagram.com/sree__hari_s"><i class="fa fa-instagram"></i></a></li>
+      </ul> <!-- /intro-social -->      	
+
+   </section> <!-- /intro -->
+
+
+   <!-- about section
+   ================================================== -->
+   <section id="about">  
+
+   	<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>About</h5>
+   			<h1>Let me introduce myself.</h1>
+
+   			<div class="intro-info">
+
+   				<img src="{% static 'images/pic.jpg' %}" alt="Profile Picture">
+
+   				<p class="lead">I am a third year Electronics and communication student who is very passionate in programing  as well as in electronics</p>
+   			</div>   			
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row about-content">
+
+   		<div class="col-six tab-full">
+
+   			<h3>Profile</h3>
+   			<p> </p>
+
+   			<ul class="info-list">
+   				<li>
+   					<strong>Fullname:</strong>
+   					<span>SREEHARI S</span>
+   				</li>
+   				<li>
+   					<strong>Birth Date:</strong>
+   					<span>AUGUST 31, 2000</span>
+   				</li>
+				   <li>
+					<strong>College</strong>
+					<span>GOVERNMENT ENGINEERING COLLEGE THRISSUR</span>
+				</li>
+   				<li>
+   					<strong>STREAM:</strong>
+   					<span>Electronics and communication</span>
+   				</li>
+   				<li>
+   					<strong>Website:</strong>
+   					<span>www.kardswebsite.com</span>
+   				</li>
+   				<li>
+   					<strong>Email:</strong>
+   					<span>sreehariputhiyedath.com</span>
+   				</li>
+
+   			</ul> <!-- /info-list -->
+
+   		</div>
+
+   		<div class="col-six tab-full">
+
+   			<h3>Skills</h3>
+   			<p></p>
+
+				<ul class="skill-bars">
+					{% for DATA in data%}
+				   <li>
+				   	<div class="progress percent{{DATA.percentage}}"><span>{{DATA.percentage}}%</span></div>
+				   	<strong>{{DATA.skill}}</strong>
+				   </li>
+				   {% endfor %}
+				   
+
+				  
+				</ul> <!-- /skill-bars -->		
+
+   		</div>
+		
+		
+   	</div>
+	{% for post in File%}
+
+   	<div class="row button-section">
+		   
+   		<div class="col-twelve">
+   			
+   			<a href="{{post.adminupload.url}}" title="Download CV" class="button button-primary" download="{{post.adminupload.url}}">Download CV</a>
+			
+   		</div>   		
+	</div>
+	   {% endfor%}
+
+   </section> <!-- /process-->    
+
+
+   <!-- resume Section
+   ================================================== -->
+	<section id="resume" class="grey-section">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			
+   			<h1>More of my credentials.</h1>
+
+   			<p class="lead">Details regarding my educational status and achievements throughout the acadamic career is given below </p>
+   		</div>   		
+   	</div> <!-- /section-intro--> 
+
+	   
+   	
+   	<div class="row resume-timeline">
+
+		<div class="col-twelve resume-header">
+
+			<h2>Education</h2>
+
+		</div> <!-- /resume-header -->
+
+		<div class="col-twelve">
+
+			<div class="timeline-wrap">
+			 {% for ed in education%}
+
+				<div class="timeline-block">
+
+					<div class="timeline-ico">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+
+					<div class="timeline-header">
+						<h3>{{ed.degree}}</h3>
+						<p>{{ed.date}}</p>
+					</div>
+
+					<div class="timeline-content">
+						<h4>{{ed.college}}</h4>
+						<p>{{ed.dec}}</p>
+					</div>
+
+				</div> <!-- /timeline-block -->
+			 {% endfor %}
+
+				
+
+				
+
+			</div> <!-- /timeline-wrap -->   			
+
+		</div> <!-- /col-twelve -->
+		
+	</div> <!-- /resume-timeline -->
+
+   
+   	
+   	<div class="row resume-timeline">
+
+   		<div class="col-twelve resume-header">
+
+   			<h2>Achievements</h2>
+
+   		</div> <!-- /resume-header -->
+
+   		<div class="col-twelve">
+
+   			<div class="timeline-wrap">
+				{% for ach in achievements%}
+
+   				<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-briefcase"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>{{ach.name}}</h3>
+	   					<p>{{ach.status}}</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>{{ach.dec_name}}</h4>
+	   					<p>{{ach.dec}}</p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+				{% endfor %}
+
+	   			
+
+	   			
+
+   			</div> <!-- /timeline-wrap -->   			
+
+   		</div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /resume-timeline -->
+
+	
+		
+	</section> <!-- /features -->
+
+
+	<!-- Portfolio Section
+   ================================================== -->
+	<section id="portfolio">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Certifications</h5>
+   			<h1>Here are my certifications</h1>
+
+   			<p class="lead">Through out my acadamic career i have been awarded with certifications for my exelence in acadamics as well as extra caricular activites.</p>
+
+   		</div>   		
+   	</div> <!-- /section-intro--> 
+
+   	<div class="row portfolio-content">
+
+   		<div class="col-twelve">
+			  
+   			<!-- portfolio-wrapper -->
+			   
+
+	         <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
+				
+				{% for cert in Certifications%}
+	         	<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="{{ cert.Images.url }}" alt="{{cert.name}}">
+	                  <a href="#modal-{{cert.number}}" class="overlay">	                  	           
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+		     					       <h3 class="folio-title">{{cert.name}}</h3>	     					    
+		     					    	 <span class="folio-types">
+		     					       	  {{cert.date}}
+		     					       </span>
+		     					   </div>	                      	
+	                     </div>                    
+	                  </a>
+	               </div>	               
+	        	</div> <!-- /folio-item -->
+				{% endfor %}
+					
+
+
+	        		
+
+	            
+
+	            
+	        		
+
+	            
+				
+	            <!-- modal popups - begin
+
+	            ============================================================= -->
+				{% for cert in Certifications%}
+	            <div id="modal-{{cert.number}}" class="popup-modal slider mfp-hide">	
+					
+
+
+				     	<div class="media">
+				     		<img src="{{cert.Images.url}}" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>{{cert.name}}</h4>		      
+					      <p>{{cert.dec}}</p>
+
+					      <div class="categories">Web Development</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="#"></a>
+					    <a href="#" class="popup-modal-dismiss">Close</a>
+			         </div>		      
+
+				   </div> <!-- /modal-01 -->
+				  
+
+
+				   
+
+				  
+				   <!-- modal popups - end
+	            ============================================================= -->
+				</div> <!-- /portfolio-wrapper --> 
+				{% endfor %}
+				
+			
+			 
+   		</div>  <!-- /twelve -->   
+
+   	</div> <!-- /portfolio-content --> 
+		
+	</section> <!-- /portfolio --> 
+
+
+
+	
+	<!-- services Section
+   ================================================== -->
+	<section id="services">
+
+		<div class="overlay"></div>
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Projects</h5>
+   			<h1>Check out my amazing projects</h1>
+
+   			<p class="lead">Theoretical knowledge creates a better student,practical knowledge make him a professional</p>
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row services-content">
+
+   		<div id="owl-slider" class="owl-carousel services-list">
+			{% for pr in projects %}
+
+	      	<div class="service">	
+
+				<img src="{{pr.Images.url}}" alt="" />        
+
+	            <div class="service-content">	
+
+	            	 <h3>{{pr.name}}</h3>
+
+		            <p class="desc">{{pr.dec}}
+	         		</p>
+	         		
+	         	</div> 	         	 
+
+				</div> <!-- /service -->
+			{% endfor %}
+				
+
+			   
+			  
+				
+
+			   
+
+			  
+	      </div> <!-- /services-list -->
+   		
+   	</div> <!-- /services-content -->
+		
+	</section> <!-- /services -->	
+
+
+	<!-- stats Section
+   ================================================== -->
+	<section id="stats" class="count-up">
+
+		<div class="row">
+			<div class="col-twelve">
+
+				<div class="block-1-6 block-s-1-3 block-tab-1-2 block-mob-full stats-list">
+					{%for ov in overviews%}
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="{{ov.badge}}"></i>
+						</div>
+
+						<h3 class="stat-count">
+							{{ov.number}}
+						</h3>
+
+						<h5 class="stat-title">
+							{{ov.name}}
+						</h5>
+
+					</div> <!-- /stat -->	
+					{% endfor %}				
+
+					
+				</div> <!-- /stats-list -->
+
+			</div> <!-- /twelve -->
+		</div> <!-- /row -->
+
+	</section> <!-- /stats -->
+
+	
+   <!-- contact
+   ================================================== -->
+	<section id="contact">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Contact</h5>
+   			<h1>I'd Love To Hear From You</h1>
+
+   			
+
+   		</div> 
+   	</div> <!-- /section-intro -->
+
+   	<div class="row contact-form">
+
+   		<div class="col-twelve">
+
+            <!-- form -->
+            <form name="contactForm" method="post" action="{% url 'contact' %}">
+				{% csrf_token %}
+      			<fieldset>
+
+                  <div class="form-field">
+ 						   <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
+                  </div>
+                  <div class="form-field">
+	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
+	               </div>
+                  <div class="form-field">
+	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="">
+	               </div>                       
+                  <div class="form-field">
+	                 	<textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required=""></textarea>
+	               </div>                      
+                 <div class="form-field">
+                     <button class="submitform" >Submit</button>
+                     <div id="submit-loader">
+                        <div class="text-loader" >Sending...</div>                             
+       				      <div class="s-loader">
+								  	<div class="bounce1"></div>
+								  	<div class="bounce2"></div>
+								  	<div class="bounce3"></div>
+								</div>
+							</div>
+                  </div>
+
+      			</fieldset>
+      		</form> <!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning">            	
+            </div>            
+            <!-- contact-success -->
+      		<div id="message-success">
+               <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+      		</div>
+
+         </div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /contact-form -->
+
+   	<div class="row contact-info">
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-pin"></i>
+   			</div>
+
+   			<h5>Where to find me</h5>
+
+   			<p>
+            CALICUT<br>
+            KERALA,INDIA<br>
+            PIN:673585
+            </p>
+
+   		</div>
+
+   		<div class="col-four tab-full collapse">
+
+   			<div class="icon">
+   				<i class="icon-mail"></i>
+   			</div>
+
+   			<h5>Email Me At</h5>
+
+   			<p>sreehariputhiyedath@gmail.com<br>
+						     
+			   </p>
+
+   		</div>
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-phone"></i>
+   			</div>
+
+   			<h5>Call Me At</h5>
+
+   			<p>Mobile: 9633155122<br>
+			    whatsapp: 9633156122
+			   </p>
+
+   		</div>
+   		
+   	</div> <!-- /contact-info -->
+		
+	</section> <!-- /contact -->
+
+
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+     	<div class="row">
+
+     		<div class="col-six tab-full pull-right social">
+
+     			<ul class="footer-social">        
+					<li><a href="http://www.facebook.com/sreehari.sreehari.988"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="http://www.linkedin.com/in/sree-hari-s-826108170"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="http://twitter.com/Sreehar04564664"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="http://instagram.com/sree__hari_s"><i class="fa fa-instagram"></i></a></li>
+			   </ul> 
+	      		
+	      </div>
+
+   </footer>  
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+   <script src="{% static 'js/plugins.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
